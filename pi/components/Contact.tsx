@@ -80,7 +80,7 @@ const Contact = () => {
             <div className="flex flex-col md:flex-row justify-between w-container mx-auto my-10">
                 <div className="flex-1 mx-auto">
                     <span className="tracking-tight text-gray-700 text-2xl">Liên Hệ</span>
-                    <h3 className="font-bold text-[3rem] leading-tight w-[25rem] mb-4">Bạn có thắc mắc hoặc cần hỗ trợ?</h3>
+                    <h3 className="font-bold text-[3rem] leading-tight md:w-[25rem] mb-4">Bạn có thắc mắc hoặc cần hỗ trợ?</h3>
 
                     <div className="">
                         <div className="flex items-center text-gray-700">
