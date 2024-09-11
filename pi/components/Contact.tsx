@@ -1,37 +1,26 @@
 import Image from "next/image";
 import { calendarIcon, locationIcon, mailGreenIcon, mailIcon, phoneIcon, smartphoneIcon, userIcon } from "../public/assets";
-import { useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 
 const Contact = () => {
     const [firstNameValue, setFirstNameValue] = useState('');
-    const [lastNameValue, setLastNameValue] = useState('');
     const [phoneNumberValue, setPhoneNumberValue] = useState('');
     const [emailValue, setEmailValue] = useState('');
-    const [messageValue, setMessageValue] = useState('');
   
-    const handleFirstNameChange = (e: any) => {
+    const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
       setFirstNameValue(e.target.value)
     };
   
-    const handleLastNameChange = (e: any) => {
-      setLastNameValue(e.target.value)
-    };
-  
-    const handlePhoneNumberChange = (e: any) => {
+    const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
       setPhoneNumberValue(e.target.value)
     };
   
-    const handleEmailChange = (e: any) => {
+    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
       setEmailValue(e.target.value)
     };
-    
-    const handleMessageChange = (e: any) => {
-      setMessageValue(e.target.value)
-    };
-  
   
     const [popUpVisible, setPopUpVisible] = useState(false);
-    const showPopUp = (e: any) => {
+    const showPopUp = () => {
   
         if (emailValid) {
           setPopUpVisible(prevState => !prevState)
@@ -41,10 +30,8 @@ const Contact = () => {
     
           setTimeout(() => {
             setFirstNameValue('');
-            setLastNameValue('');
             setPhoneNumberValue('');
             setEmailValue('');
-            setMessageValue('');
             setEmailWarning('');
           }, 200)
         }
@@ -127,7 +114,7 @@ const Contact = () => {
 
                 {/* send message to email using formsubmit.co */}
                 <form className="mx-auto flex flex-col gap-6 flex-1 mt-8" action="https://formsubmit.co/f014aa1b902d62b9fceb94b24be012c5" 
-                method="POST" target="frame" onSubmit={e => showPopUp(e)}>
+                method="POST" target="frame" onSubmit={showPopUp}>
                     <h2 className="text-zinc-800 font-semibold text-2xl md:text-[2rem] md:leading-10">
                         Đặt lịch sân bóng
                     </h2>
